@@ -39,5 +39,14 @@ app.listen(app.get('port'), () =>{
   console.log('익스프레스 서버 실행');
 });
 
+app.use((req, res, next)=> {
+  res.status(200).send('404에러');
+});
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.send('에러가 발생했다!!!!')
+});
+
 
 module.exports = app;
